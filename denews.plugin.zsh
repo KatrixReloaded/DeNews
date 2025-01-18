@@ -22,7 +22,7 @@ deNews() {
             tokenName=$2
         fi
 
-        api+="name=$tokenName"
+        api+="tokenName=$tokenName"
         curl_response=$(curl -s "https://caiman-wanted-fox.ngrok-free.app/api$api")
         echo "Token Details: \n$curl_response"
 
@@ -103,10 +103,10 @@ deNews() {
         echo "DeNews: A plugin for the latest news related to blockchain"
         echo "Usage: denews [options] [arguments]"
         echo "Options:"
-        echo "  -t, --token [name] [filter] : Get details of a token"
-        echo "  -n, --news [num] [keyword] : Get the latest news headlines"
-        echo "  -tt, --top-tokens [num] [chain] : Get the top tokens"
-        echo "  -h, --help : Display this help message"
+        echo "  -t, --token       [name] [filter] : Get details of a token"
+        echo "  -n, --news        [num] [keyword] : Get the latest news headlines"
+        echo "  -tt, --top-tokens [num] [chain]   : Get the top tokens"
+        echo "  -h, --help                        : Display this help message"
     else
         echo "Invalid Command! Run 'denews --help' for more information."
     fi
