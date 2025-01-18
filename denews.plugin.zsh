@@ -61,9 +61,8 @@ deNews() {
             api="?num=10"
         fi
 
-        if [[ "$2" != "-h" || "$2" != "--help" ]]; then
-            curl_response=$(curl -s "https://caiman-wanted-fox.ngrok-free.app/api$api")
-            echo "Latest News Headlines: \n$curl_response"
+        curl_response=$(curl -s "https://caiman-wanted-fox.ngrok-free.app/api$api")
+        echo "Latest News Headlines: \n$curl_response"
     
     elif [[ "$2" == "--top-tokens" || "$2" == "-tt"]]; then
         api="/top-tokens"
@@ -101,11 +100,17 @@ deNews() {
     
     elif [[ "$2" == "--help" || "$2" == "-h" ]]; then
         echo "DeNews: A plugin for the latest news related to blockchain"
-        echo "Usage: denews [options] [arguments]"
+        echo "Usage: denews [options] [arguments]\n"
         echo "Options:"
         echo "  -t, --token       [name] [filter] : Get details of a token"
+        echo "    Example: denews -t bitcoin -a"
+        echo "             denews --token bitcoin --all"
         echo "  -n, --news        [num] [keyword] : Get the latest news headlines"
+        echo "    Example: denews -n --num 10 -kw bitcoin"
+        echo "             denews --news --num 10 --keyword bitcoin"
         echo "  -tt, --top-tokens [num] [chain]   : Get the top tokens"
+        echo "    Example: denews -tt --num 10 -c ethereum"
+        echo "             denews --top-tokens --num 10 --chain ethereum"
         echo "  -h, --help                        : Display this help message"
     else
         echo "Invalid Command! Run 'denews --help' for more information."
